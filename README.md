@@ -77,7 +77,7 @@ The resulting program is in test.py
 •	Why: Storing data in both dictionaries is unnecessary duplication of information and can increase memory usage.  
 •	Benefits: By eliminating self.temp_examples and directly updating the self.collected_data_from_file dictionary, we reduce memory overhead and simplify the code.  
 
-**16.	Use of OrderedDict**  
-•	What: The code uses collections.OrderedDict in the flatten_dict method.  
-•	Why: OrderedDict preserves the order of insertion, which ensures that the order of keys in the flattened dictionary is consistent with the order of appearance in the JSON.  
-•	Benefits: When dealing with JSON data where the order of keys matters, using OrderedDict ensures that the output maintains the original order, making it useful in specific scenarios.  
+**16. Use of dict Instead of OrderedDict in flatten_dict Method**  
+What: The code originally used collections.OrderedDict in the flatten_dict method to preserve the order of insertion for the flattened dictionary.  
+Why: In Python 3.7 and later, the built-in dict type maintains the order of insertion by default, making the use of OrderedDict unnecessary for this specific task.  
+Benefits: By using the standard dict instead of OrderedDict, we achieve the same result while simplifying the code and reducing the need for an additional import from the collections module. This change leverages the inherent order-preserving behavior of dict in modern Python versions, resulting in cleaner and more efficient code.  
